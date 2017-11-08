@@ -1,0 +1,189 @@
+<!doctype html>
+<html>
+    <head>
+        <title>
+            Nuke's Store
+        </title>
+        <style>
+            img{
+                width:300px;
+            }
+            input{
+                width:30px;
+                background-color:lavender;
+            }
+            body{
+                background-color:lavender;
+                color:rgb(60, 198, 207);
+            }
+            button{
+                color:rgb(60, 198, 207);
+            }
+            div{
+                color: rgb(60, 198, 207);
+            }
+        </style>
+        <script>
+            function bill(){
+                var retailprice1 = 50;
+                var retailprice2 = 100;
+                var retailprice3 = 150;
+                var retailprice4 = 200;
+                var wholesaleprice1 = 25;
+                var wholesaleprice2 = 50;
+                var wholesaleprice3 = 75;
+                var wholesaleprice4 = 100;
+                var quantity1 = document.getElementById("Qty1");
+                var quantity2 = document.getElementById("Qty2");
+                var quantity3 = document.getElementById("Qty3");
+                var quantity4 = document.getElementById("Qty4");
+                var customersubtotal = parseInt(retailprice1 * quantity1.value + retailprice2 * quantity2.value + retailprice3 * quantity3.value + retailprice4 * quantity4.value);
+                var companysubtotal = parseInt(wholesaleprice1 * quantity1.value + wholesaleprice2 * quantity2.value + wholesaleprice3 * quantity3.value + wholesaleprice4 + quantity4.value);
+                var output = document.getElementById("output");
+
+                var shipping = 
+
+                var tax = parseFloat(customersubtotal.value) * 0.0875;
+                
+                var total = parseFloat(customersubtotal.value) + tax + shipping;
+                
+                var build = "";
+                build += "Subtotal: $" + customersubtotal.value + "<br>"
+                build += "Tax: $" + tax.toFixed(2) + "<br>"
+                build += "Shipping: $" + shipping + "<br>"
+                build += "--------------------------<br>";
+                build += "Total: $" + total + "<br>";
+                build += "--------------------------<br>";
+
+                if(customersubtotal.value >= 120){
+                build += "Shipping Is Free";
+                }else if(customersubtotal.value <=119.99){
+                build += "Shipping Is $10";
+                }
+
+                output.innerHTML = build;
+            }
+        </script>
+    </head>
+    <body>
+        <div>
+            <h1>
+                Amazon Dot
+            </h1>
+            <img src="Images/Dot.jpg"><br>
+            <span>
+                $50
+            </span>
+            <p>
+                Echo Dot (2nd Generation) is a hands-free, voice-controlled device that uses Alexa to play music, control smart home devices, make calls, send and receive messages, provide information, read the news, set alarms, read audiobooks from Audible, control Amazon Video on Fire TV, and more<br>
+                <br>
+                Connects to speakers or headphones through Bluetooth or 3.5 mm stereo cable to play music from Amazon Music, Spotify, Pandora, iHeartRadio, and TuneIn. Play music simultaneously across Echo devices and speakers connected via cable with multi-room music (Spotify and Sirius XM support coming soon).<br>
+                <br>
+                Call or message anyone hands-free with your Echo device. Also, instantly connect to other Echo devices in your home using just your voice.<br>
+                <br>
+                Controls lights, fans, TVs, switches, thermostats, garage doors, sprinklers, locks, and more with compatible connected devices from WeMo, Philips Hue, Sony, Samsung SmartThings, Nest, and others<br>
+                <br>
+                Hears you from across the room with 7 far-field microphones for hands-free control, even in noisy environments or while playing music <br>
+                <br>
+                Includes a built-in speaker so it can work on its own as a smart alarm clock in the bedroom, an assistant in the kitchen, or anywhere you might want a voice-controlled computer; Amazon Echo is not required to use Echo Dot<br>
+                <br>
+                Always getting smarter and adding new features, plus thousands of skills like Uber, Domino's, DISH, and more.<br>
+            </p>
+            Quantity: <input type="text" id="Qty1">
+            <button onclick>
+                Add To Cart
+            </button>
+        </div>
+        <div>
+            <h2>
+                Amazon Tap
+            </h2>
+            <img src="Images/Tap.jpg"><br>
+            <span>
+                $100
+            </span>
+            <p>
+                    Just tap and ask for music from Amazon Music, Spotify, Pandora, iHeartRadio, and TuneIn. Enable hands-free mode to control music and more from a distance.<br>
+                    <br>
+                    Uses the Alexa Voice Service when connected to Wi-Fi or a mobile hotspot to play music, read the news, provide weather reports, and even order a pizza.<br>
+                    <br>
+                    Provides up to 9 hours of continuous playback (up to 8 hours when in hands-free mode), Charging Cradle included.<br>
+                    <br>
+                    Streams all your music via Bluetooth from your phone or tablet.<br>
+                    <br>
+                    Delivers crisp sound powered by Dolby, with dual stereo speakers that provide 360º omni-directional audio.<br>
+                    <br>
+                    Always getting smarter and adding new features and skills.<br>
+            </p>
+            Quantity: <input type="text" id="Qty2">
+            <button onclick>
+                Add To Cart
+            </button>                       
+        </div>
+        <div>
+            <h3>
+                Amazon Echo
+            </h3>
+            <img src="Images/Echo.jpg"><br>
+            <span>
+                $150
+            </span>
+            <p>
+                    All-new Echo (2nd Gen) has a new speaker, new design, and is available in six styles including fabrics and wood veneers. Echo connects to Alexa to play music, make calls, set alarms and timers, ask questions, control smart home devices, and more—instantly.<br>
+                    <br>
+                    Just ask for a song, artist, or genre from Amazon Music, Spotify, Pandora, and more. With multi-room music, you can play music on compatible Echo devices in different rooms. Echo can also play audiobooks, radio stations, news briefs, and more.<br>
+                    <br>
+                    Call or message anyone hands-free with your Echo device. Also, instantly connect to other Echo devices in your home using just your voice.<br>
+                    <br>
+                    New speaker, now with Dolby processing for crisp vocals and dynamic bass response. Echo can fill the room with 360° omnidirectional audio.<br>
+                    <br>
+                    With seven microphones, beamforming technology, and noise cancellation, Echo hears you from any direction—even while music is playing.<br>
+                    <br>
+                    Just ask Alexa to check your calendar, weather, traffic, and sports scores, manage to-do and shopping lists, control your compatible smart lights, thermostats, garage doors, sprinklers, and more.<br>
+                    <br>
+                    Alexa is always getting smarter and adding new features and skills. Just ask Alexa to control your TV, request an Uber, order a pizza, and more.<br>
+            </p>
+            Quantity: <input type="text" id="Qty3">
+            <button onclick>
+                Add To Cart
+            </button>
+        </div>
+        <div>
+            <h4>
+                Amazon Echo Plus
+            </h4>
+            <img src="Images/Echo Plus.jpg"><br>
+            <span>
+                $200
+            </span>
+            <p>
+                    Echo Plus connects to Alexa—a cloud-based voice service—to play music, make calls, set timers and alarms, ask questions, check traffic and weather, and more—instantly. With the built-in hub you can directly set up and control your smart home devices.<br>
+                    <br>
+                    Alexa can control your compatible smart lights, thermostats, locks, garage doors, sprinklers, and more. Set up devices from Philips Hue, GE, Kwikset, and others without the need for a separate hub. Just ask Alexa to discover your connected devices.<br>
+                    <br>
+                    Just ask for a song, artist, or genre from Amazon Music, Spotify, Pandora, and more. With multi-room music, you can play music on your Echo devices in different rooms. Echo Plus can also play audiobooks, radio stations, news briefs, and more.<br>
+                    <br>
+                    Call or message anyone hands-free with your Echo device. Also, instantly connect to other Echo devices in your home using just your voice.<br>
+                    <br>
+                    Improved speakers with Dolby processing deliver crisp vocals and extended bass to fill the room with immersive, 360° audio.<br>
+                    <br>
+                    With seven microphones, beamforming technology, and noise cancellation, Echo hears you from any direction—even while music is playing.<br>
+                    <br>
+                    Alexa is always getting smarter and adding new features and skills. Just ask Alexa to control your TV, request an Uber, order a pizza, and more.<br>
+            </p>
+            Quantity: <input type="text" id="Qty4">
+            <button onclick>
+                Add To Cart
+            </button>
+            <br>
+        </div>
+        <br>
+        Subtotal: <input id="customersubtotal" type="text">
+        <button onclick="bill()">
+            Continue To Check Out
+        </button>
+        <div id="output">
+        </div>
+
+    </body>
+</html>
