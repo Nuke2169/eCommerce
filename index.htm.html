@@ -6,21 +6,51 @@
         </title>
         <style>
             img{
-                width:300px;
+                width: 300px;
             }
             input{
-                width:30px;
-                background-color:lavender;
+                width: 20px;
+                background-color: lavender;
+                font-style: italic;
+                font-size: 20px;
             }
             body{
-                background-color:lavender;
-                color:rgb(60, 198, 207);
+                background-color: lavender;
+                color: rgb(60, 198, 207);
             }
             button{
-                color:rgb(60, 198, 207);
+                color: rgb(60, 198, 207);
+                font-style: italic;
+                font-size: 20px;
             }
             div{
                 color: rgb(60, 198, 207);
+                font-style: italic;
+                font-size: 30px;
+            }
+            h1{
+                font-size: 30px;
+            }
+            h2{
+                font-size: 30px;
+            }
+            h3{
+                font-size: 30px;
+            }
+            h4{
+                font-size: 30px;
+            }
+            h5{
+                font-size: 30px;
+            }
+            h6{
+                font-size: 30px;
+            }
+            p{
+                font-size: 20px;
+            }
+            span{
+                color: blue
             }
         </style>
         <script>
@@ -29,36 +59,55 @@
                 var retailprice2 = 100;
                 var retailprice3 = 150;
                 var retailprice4 = 200;
+                var retailprice5 = 230;
+                var retailprice6 = 40;
                 var wholesaleprice1 = 25;
                 var wholesaleprice2 = 50;
                 var wholesaleprice3 = 75;
                 var wholesaleprice4 = 100;
+                var wholesaleprice5 = 115;
+                var wholesaleprice6 = 20;
                 var quantity1 = document.getElementById("Qty1");
                 var quantity2 = document.getElementById("Qty2");
                 var quantity3 = document.getElementById("Qty3");
                 var quantity4 = document.getElementById("Qty4");
-                var customersubtotal = parseInt(retailprice1 * quantity1.value + retailprice2 * quantity2.value + retailprice3 * quantity3.value + retailprice4 * quantity4.value);
-                var companysubtotal = parseInt(wholesaleprice1 * quantity1.value + wholesaleprice2 * quantity2.value + wholesaleprice3 * quantity3.value + wholesaleprice4 + quantity4.value);
+                var quantity5 = document.getElementById("Qty5");
+                var quantity6 = document.getElementById("Qty6");
+                var customersubtotal = parseInt(retailprice1 * quantity1.value + retailprice2 * quantity2.value + retailprice3 * quantity3.value + retailprice4 * quantity4.value + retailprice5 * quantity5.value + retailprice6 * quantity6.value);
+                var companyprofit = parseInt(wholesaleprice1 * quantity1.value + wholesaleprice2 * quantity2.value + wholesaleprice3 * quantity3.value + wholesaleprice4 * quantity4.value + wholesaleprice5 * quantity5.value + wholesaleprice6 * quantity6.value);
+                console.log("The Company Profit Is: $" + companyprofit);
+                console.log("The Total Number Of Items Sold Is: " + quantity1.value + quantity2.value + quantity3.value + quantity4.value + quantity5.value + quantity6.value)
                 var output = document.getElementById("output");
 
-                var shipping = 
+                var shipping = 0;
+                if(customersubtotal >= 150){
+                }else if(customersubtotal >= 125 && customersubtotal <= 149){
+                    shipping = 15;
+                }else if(customersubtotal >= 100 && customersubtotal <=124){
+                    shipping = 20;
+                }else if(customersubtotal >= 50 && customersubtotal <= 99){
+                    shipping = 25;
+                }
 
-                var tax = parseFloat(customersubtotal.value) * 0.0875;
+                var tax = parseFloat(customersubtotal) * 0.0875;
                 
-                var total = parseFloat(customersubtotal.value) + tax + shipping;
+                var total = parseFloat(customersubtotal) + tax + shipping;
                 
                 var build = "";
-                build += "Subtotal: $" + customersubtotal.value + "<br>"
-                build += "Tax: $" + tax.toFixed(2) + "<br>"
-                build += "Shipping: $" + shipping + "<br>"
-                build += "--------------------------<br>";
-                build += "Total: $" + total + "<br>";
-                build += "--------------------------<br>";
-
-                if(customersubtotal.value >= 120){
-                build += "Shipping Is Free";
-                }else if(customersubtotal.value <=119.99){
-                build += "Shipping Is $10";
+                build += "Subtotal: $" + customersubtotal + "<br>";
+                build += "Tax: $" + tax.toFixed(2) + "<br>";
+                build += "Shipping: $" + shipping + "<br>";
+                build += "__________________________<br>";
+                build += "Total: $" + total.toFixed(2) + "<br>";
+                build += "__________________________<br>";
+                if(customersubtotal >= 150){
+                    build += "Shipping Is Free";
+                }else if(customersubtotal >= 125 && customersubtotal <= 129){
+                    build += "Shipping Is $15";
+                }else if(customersubtotal >= 100 && customersubtotal <= 124){
+                    build += "Shipping Is $20"
+                }else if(customersubtotal >= 50 && customersubtotal <= 99){
+                    build += "Shipping Is $25"
                 }
 
                 output.innerHTML = build;
@@ -89,7 +138,7 @@
                 <br>
                 Always getting smarter and adding new features, plus thousands of skills like Uber, Domino's, DISH, and more.<br>
             </p>
-            Quantity: <input type="text" id="Qty1">
+            Quantity: <input type="text" id="Qty1" placeholder=" 0">
             <button onclick>
                 Add To Cart
             </button>
@@ -115,7 +164,7 @@
                     <br>
                     Always getting smarter and adding new features and skills.<br>
             </p>
-            Quantity: <input type="text" id="Qty2">
+            Quantity: <input type="text" id="Qty2" placeholder=" 0">
             <button onclick>
                 Add To Cart
             </button>                       
@@ -143,7 +192,7 @@
                     <br>
                     Alexa is always getting smarter and adding new features and skills. Just ask Alexa to control your TV, request an Uber, order a pizza, and more.<br>
             </p>
-            Quantity: <input type="text" id="Qty3">
+            Quantity: <input type="text" id="Qty3" placeholder=" 0">
             <button onclick>
                 Add To Cart
             </button>
@@ -171,14 +220,70 @@
                     <br>
                     Alexa is always getting smarter and adding new features and skills. Just ask Alexa to control your TV, request an Uber, order a pizza, and more.<br>
             </p>
-            Quantity: <input type="text" id="Qty4">
+            Quantity: <input type="text" id="Qty4" placeholder=" 0">
             <button onclick>
                 Add To Cart
             </button>
-            <br>
         </div>
-        <br>
-        Subtotal: <input id="customersubtotal" type="text">
+        <div>
+            <h5>
+                Amazon Show
+            </h5>
+            <img src="Images/Show.jpg"><br>
+            <span>
+                $230
+            </span>
+            <p>
+                Echo Show brings you everything you love about Alexa, and now she can show you things. Watch video flash briefings, Amazon Video content, see music lyrics, security cameras, photos, weather forecasts, to-do and shopping lists, browse and listen to Audible audiobooks, and more. All hands-free—just ask.<br>
+                <br>
+                Call anyone hands-free, or make video calls to family and friends with an Echo Spot, Echo Show, or the Alexa App. Instantly connect to other Echo devices around your home.<br>
+                <br>
+                See lyrics on-screen with Amazon Music. Just ask to play a song, artist or genre, and stream over Wi-Fi. Also, stream music on Pandora, Spotify, TuneIn, iHeartRadio, and more.<br>
+                <br>
+                Powerful, room-filling speakers with Dolby processing for crisp vocals and extended bass response. Play your music simultaneously across Echo devices with multi-room music (Spotify and Sirius XM support coming soon, Bluetooth not supported).<br>
+                <br>
+                Ask Alexa to show you the front door or monitor the baby's room with compatible cameras from Amazon and others. Turn on lights or the TV, set thermostats, control Amazon Video on Fire TV, and more with WeMo, Philips Hue, Sony, ecobee, and other compatible smart home devices.<br>
+                <br>
+                With eight microphones, beam-forming technology, and noise cancellation, Echo Show hears you from any direction—even while music is playing<br>
+                <br>
+                Always getting smarter and adding new features, plus thousands of skills like Uber, Allrecipes, CNN, and more<br>
+            </p>
+            Quantity: <input type="text" id="Qty5" placeholder=" 0">
+            <button onclick>
+                Add To Cart
+            </button>
+        </div>
+        <div>
+            <h6>
+                Fire Stick
+            </h6>
+            <img src="Images/Fire.jpg"><br>
+            <span>
+                $40
+            </span>
+            <p>
+                The next generation of our bestselling Fire TV Stick. The most powerful streaming media stick under $50–now with the Alexa Voice Remote.<br>
+                <br>
+                Enjoy tens of thousands of channels, apps, and Alexa skills including Netflix, Hulu, HBO NOW, YouTube, Amazon Video, NBC, WatchESPN, Disney, and more. Subscription fees may apply.<br>
+                <br>
+                Launch and control content with the included Alexa Voice Remote. Simply say, “Play Game of Thrones” or “Launch Netflix” and Alexa will respond instantly. Plus, play music, find movie show times, order a pizza, and more—just ask.<br>
+                <br>
+                No cable or satellite? No problem. Watch the best of live TV and sports from AMC, HGTV, ESPN, FOX, and others with a subscription to DIRECTV NOW, or top-rated primetime shows with CBS All Access.<br>
+                <br>
+                Find the best way to watch with universal search results from over 190 channels and apps including Netflix, Hulu, and Amazon Video.<br>
+                <br>
+                Prime membership unlocks thousands of movies and TV episodes, including Thursday Night Football, Amazon Original Series, Amazon Channels, and ad-free listening to millions of songs with Prime Music.<br>
+                <br>
+                Pick up where you left off. Bring hit shows and movies with you when you travel. Plug Fire TV Stick into any TV’s HDMI port, connect to Wi-Fi, and continue watching.<br>
+                <br>
+                Play current favorites or quickly discover what to watch next directly from the Home screen.<br>
+            </p>
+            Quantity: <input type="text" id="Qty6" placeholder=" 0">
+            <button onclick>
+                Add To Cart
+            </button>
+        </div>
+        <div>
         <button onclick="bill()">
             Continue To Check Out
         </button>
